@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de eDPI y sensibilidad del ratón · PixelTrucos</title>
+<meta name="description" content="Calculadora gratis de eDPI: compara sensibilidades y cambia el DPI del ratón sin perder tu sensación al apuntar.">
+<meta name="theme-color" content="#04040a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="PixelTrucos">
+<meta property="og:title" content="Calculadora de eDPI y sensibilidad del ratón · PixelTrucos">
+<meta property="og:description" content="Calculadora gratis de eDPI: compara sensibilidades y cambia el DPI del ratón sin perder tu sensación al apuntar.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="estilo.css">
+<script>document.documentElement.className='js'</script>
+<script src="script.js" defer></script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="sitio">
+  <div class="barra">
+    <a class="logo" href="index.html" aria-label="PixelTrucos, inicio"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
+    <button id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="guias.html">Guías</a><a href="herramientas.html" class=activo aria-current=page>Herramientas</a><a href="sobre.html">Sobre</a></nav>
+  </div>
+</header>
+<main id="contenido">
+<p class="miga"><a href="index.html">Inicio</a> › <a href="herramientas.html">Herramientas</a> › Calculadora de eDPI</p>
+<article class="articulo">
+<h1>Calculadora de eDPI</h1>
+<p class="meta">Herramienta gratuita · Para jugar con ratón</p>
+<p>El <strong>eDPI</strong> (DPI efectivo) sirve para comparar sensibilidades entre jugadores o entre ajustes. Se calcula multiplicando los DPI de tu ratón por la sensibilidad que tienes en el juego.</p>
+<div class="consejo">💡 <strong>Fórmula:</strong> eDPI = DPI del ratón × sensibilidad en el juego</div>
+
+<div class="herramienta">
+  <h2>1. Calcula tu eDPI</h2>
+  <label for="dpi1">DPI de tu ratón</label>
+  <input type="number" id="dpi1" min="1" step="any" value="800" inputmode="decimal">
+  <label for="sens1">Sensibilidad en el juego</label>
+  <input type="number" id="sens1" min="0" step="any" value="0.5" inputmode="decimal">
+  <button class="btn" id="b1" type="button">Calcular eDPI</button>
+  <div class="resultado" id="r1" hidden></div>
+</div>
+
+<div class="herramienta">
+  <h2>2. Cambia de DPI sin perder tu sensación</h2>
+  <p>Si cambias el DPI de tu ratón, esta herramienta te dice qué sensibilidad poner en el juego para mantener el mismo eDPI.</p>
+  <label for="dpi2a">DPI actual</label>
+  <input type="number" id="dpi2a" min="1" step="any" value="800" inputmode="decimal">
+  <label for="sens2a">Sensibilidad actual en el juego</label>
+  <input type="number" id="sens2a" min="0" step="any" value="0.5" inputmode="decimal">
+  <label for="dpi2b">DPI nuevo</label>
+  <input type="number" id="dpi2b" min="1" step="any" value="1600" inputmode="decimal">
+  <button class="btn" id="b2" type="button">Calcular sensibilidad nueva</button>
+  <div class="resultado" id="r2" hidden></div>
+</div>
+
+<div class="aviso">⚠️ <strong>Ojo:</strong> cada juego escala la sensibilidad a su manera. Un mismo eDPI en dos juegos distintos no se siente igual. Usa esta herramienta para comparar y cambiar ajustes <strong>dentro del mismo juego</strong>.</div>
+
+<p>Para saber cómo encontrar tu sensibilidad ideal, lee la guía <a href="guia-controles-fortnite.html">Mejora en Fortnite</a>.</p>
+</article>
+
+</main>
+<footer class="pie">
+  <div class="pie-grid">
+    <div>
+      <a class="logo" href="index.html" style="margin-bottom:10px"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
+      <p>Guías, trucos y herramientas gratis para gamers y amantes de la tecnología.</p>
+    </div>
+    <div>
+      <h4>Explora</h4>
+      <a href="guias.html">Todas las guías</a>
+      <a href="herramientas.html">Herramientas</a>
+      <a href="sobre.html">Sobre PixelTrucos</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="privacidad.html">Política de privacidad</a>
+    </div>
+  </div>
+  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games. Fortnite es una marca registrada de Epic Games, Inc. Los demás nombres pertenecen a sus propietarios.</p>
+  <p class="copy">© 2026 PixelTrucos · Hecho con pasión por los videojuegos</p>
+</footer>
+<script>
+function $(id){return document.getElementById(id);}
+function fmt(n){return (Math.round(n*1000)/1000).toString().replace('.',',');}
+$('b1').addEventListener('click',function(){
+  var dpi=parseFloat($('dpi1').value), sens=parseFloat($('sens1').value), r=$('r1');
+  if(!(dpi>0)||!(sens>=0)){r.hidden=false;r.textContent='Escribe números válidos en los dos campos.';return;}
+  r.hidden=false;
+  r.innerHTML='Tu eDPI es <strong>'+fmt(dpi*sens)+'</strong> ('+fmt(dpi)+' DPI × '+fmt(sens)+' de sensibilidad).';
+});
+$('b2').addEventListener('click',function(){
+  var a=parseFloat($('dpi2a').value), s=parseFloat($('sens2a').value), b=parseFloat($('dpi2b').value), r=$('r2');
+  if(!(a>0)||!(s>=0)||!(b>0)){r.hidden=false;r.textContent='Escribe números válidos en los tres campos.';return;}
+  r.hidden=false;
+  r.innerHTML='Con <strong>'+fmt(b)+' DPI</strong>, pon una sensibilidad de <strong>'+fmt(a*s/b)+'</strong> para mantener tu eDPI de '+fmt(a*s)+'.';
+});
+</script>
+</body>
+</html>

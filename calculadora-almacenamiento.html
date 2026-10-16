@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de almacenamiento para juegos · PixelTrucos</title>
+<meta name="description" content="Calcula cuánto espacio ocupan tus juegos y cuánto te queda libre en tu disco. Herramienta gratis.">
+<meta name="theme-color" content="#04040a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="PixelTrucos">
+<meta property="og:title" content="Calculadora de almacenamiento para juegos · PixelTrucos">
+<meta property="og:description" content="Calcula cuánto espacio ocupan tus juegos y cuánto te queda libre en tu disco. Herramienta gratis.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="estilo.css">
+<script>document.documentElement.className='js'</script>
+<script src="script.js" defer></script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="sitio">
+  <div class="barra">
+    <a class="logo" href="index.html" aria-label="PixelTrucos, inicio"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
+    <button id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="guias.html">Guías</a><a href="herramientas.html" class=activo aria-current=page>Herramientas</a><a href="sobre.html">Sobre</a></nav>
+  </div>
+</header>
+<main id="contenido">
+<p class="miga"><a href="index.html">Inicio</a> › <a href="herramientas.html">Herramientas</a> › Calculadora de almacenamiento</p>
+<article class="articulo">
+<h1>Calculadora de almacenamiento</h1>
+  <p class="meta">Herramienta gratuita</p>
+  <p>Escribe el tamaño de tu disco y añade tus juegos con lo que ocupa cada uno. Te diremos cuánto espacio te queda. Los tamaños de los juegos cambian con las actualizaciones, así que mira siempre el tamaño real en tu launcher o consola.</p>
+
+  <div class="herramienta">
+    <label for="disco">Capacidad total de tu disco (GB)</label>
+    <input type="number" id="disco" min="1" value="512" inputmode="numeric">
+
+    <label for="sistema">Espacio ya usado por el sistema y otros archivos (GB)</label>
+    <input type="number" id="sistema" min="0" value="80" inputmode="numeric">
+
+    <h2 style="margin-top:22px">Tus juegos</h2>
+    <div id="juegos"></div>
+    <button class="btn sec" id="anadir" type="button">+ Añadir juego</button>
+    <button class="btn" id="calcular" type="button">Calcular</button>
+
+    <div class="resultado" id="resultado" hidden>
+      <div id="texto"></div>
+      <div class="barra-uso"><div id="progreso"></div></div>
+    </div>
+  </div>
+
+  <div class="consejo">💡 <strong>Truco:</strong> deja siempre un 10-15% del disco libre. Un disco muy lleno puede ir más lento y dar problemas al actualizar juegos.</div>
+
+  <p>¿Te quedas corto de espacio? Mira nuestra <a href="guia-componentes-pc.html">guía de componentes de PC</a> para saber qué almacenamiento elegir.</p>
+</article>
+
+</main>
+<footer class="pie">
+  <div class="pie-grid">
+    <div>
+      <a class="logo" href="index.html" style="margin-bottom:10px"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
+      <p>Guías, trucos y herramientas gratis para gamers y amantes de la tecnología.</p>
+    </div>
+    <div>
+      <h4>Explora</h4>
+      <a href="guias.html">Todas las guías</a>
+      <a href="herramientas.html">Herramientas</a>
+      <a href="sobre.html">Sobre PixelTrucos</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="privacidad.html">Política de privacidad</a>
+    </div>
+  </div>
+  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games. Fortnite es una marca registrada de Epic Games, Inc. Los demás nombres pertenecen a sus propietarios.</p>
+  <p class="copy">© 2026 PixelTrucos · Hecho con pasión por los videojuegos</p>
+</footer>
+<script>
+const contenedor = document.getElementById('juegos');
+
+function anadirFila(nombre, gb) {
+  const fila = document.createElement('div');
+  fila.className = 'fila-juego';
+  fila.innerHTML =
+    '<input type="text" placeholder="Nombre del juego" class="nombre">' +
+    '<input type="number" placeholder="GB" min="0" step="0.1" class="gb" inputmode="decimal">' +
+    '<button type="button" aria-label="Quitar juego">✕</button>';
+  fila.querySelector('.nombre').value = nombre || '';
+  fila.querySelector('.gb').value = gb || '';
+  fila.querySelector('button').addEventListener('click', function () { fila.remove(); });
+  contenedor.appendChild(fila);
+}
+
+anadirFila('Fortnite', '');
+anadirFila('', '');
+
+document.getElementById('anadir').addEventListener('click', function () { anadirFila('', ''); });
+
+document.getElementById('calcular').addEventListener('click', function () {
+  const disco = parseFloat(document.getElementById('disco').value) || 0;
+  const sistema = parseFloat(document.getElementById('sistema').value) || 0;
+  let juegos = 0;
+  document.querySelectorAll('.gb').forEach(function (i) { juegos += parseFloat(i.value) || 0; });
+
+  const usado = sistema + juegos;
+  const libre = disco - usado;
+  const porcentaje = disco > 0 ? Math.min(100, (usado / disco) * 100) : 0;
+
+  const texto = document.getElementById('texto');
+  const barra = document.getElementById('progreso');
+
+  let mensaje = 'Tus juegos ocupan <strong>' + juegos.toFixed(1) + ' GB</strong>. ';
+  if (libre >= 0) {
+    mensaje += 'Te quedan libres <strong>' + libre.toFixed(1) + ' GB</strong> (' + (100 - porcentaje).toFixed(0) + '% del disco).';
+    if (libre < disco * 0.1) {
+      mensaje += '<br><br>⚠️ Te queda menos del 10% libre. Conviene borrar algo o ampliar el almacenamiento.';
+    }
+  } else {
+    mensaje += 'Te faltan <strong>' + Math.abs(libre).toFixed(1) + ' GB</strong>. No te caben todos los juegos.';
+  }
+  texto.innerHTML = mensaje;
+  barra.style.width = porcentaje + '%';
+  barra.className = libre < disco * 0.1 ? 'lleno' : '';
+  document.getElementById('resultado').hidden = false;
+});
+</script>
+</body>
+</html>

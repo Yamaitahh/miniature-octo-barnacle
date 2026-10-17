@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yamaitahh.github.io/pixeltrucos/sitemap.xml
+Sitemap: https://yamaitahh.github.io/miniature-octo-barnacle/sitemap.xml

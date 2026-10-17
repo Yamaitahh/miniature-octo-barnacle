@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Sobre PixelTrucos · Qué es y cómo trabajamos</title>
 <meta name="description" content="Qué es PixelTrucos, cómo se hacen las guías y cuáles son nuestras normas.">
-<meta name="theme-color" content="#04040a">
+<meta name="theme-color" content="#07040f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="PixelTrucos">
@@ -13,7 +15,7 @@
 <meta property="og:description" content="Qué es PixelTrucos, cómo se hacen las guías y cuáles son nuestras normas.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="estilo.css">
-<script>document.documentElement.className='js'</script>
+<script src="inicio.js"></script>
 <script src="script.js" defer></script>
 </head>
 <body>
@@ -21,11 +23,12 @@
 <header class="sitio">
   <div class="barra">
     <a class="logo" href="index.html" aria-label="PixelTrucos, inicio"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
-    <button id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
-    <nav id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="guias.html">Guías</a><a href="herramientas.html">Herramientas</a><a href="sobre.html" class=activo aria-current=page>Sobre</a></nav>
+    <button id="menu-btn" class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="guias.html">Guías</a><a href="juegos.html">Juegos</a><a href="herramientas.html">Herramientas</a><a href="premium.html">Premium</a><a href="sobre.html" class="activo" aria-current="page">Sobre</a></nav>
   </div>
 </header>
-<main id="contenido"><article class="articulo">
+<main id="contenido">
+<article class="articulo">
 <h1>Sobre PixelTrucos</h1>
 <p class="meta">Qué es esta web y cómo trabajamos</p>
 <p>PixelTrucos es un proyecto independiente hecho por un aficionado a los videojuegos y la tecnología. Nació para reunir en un solo sitio guías claras, trucos útiles y herramientas gratuitas para gamers.</p>
@@ -39,31 +42,43 @@
 </ul>
 
 <h2>Web de fans</h2>
-<p>PixelTrucos no está afiliada, patrocinada ni respaldada por Epic Games. Fortnite es una marca registrada de Epic Games, Inc. Usamos los nombres de los juegos solo para explicar cómo jugarlos mejor.</p>
+<p>PixelTrucos no está afiliada, patrocinada ni respaldada por Epic Games, Microsoft/Mojang, Activision, Psyonix ni Roblox Corporation. Fortnite, Minecraft, Call of Duty, Rocket League y Roblox son marcas registradas de sus respectivos propietarios. Usamos los nombres de los juegos solo para explicar cómo jugarlos mejor.</p>
 
 <h2>¿Has visto un error?</h2>
 <p>Los juegos cambian con cada actualización y puede que alguna guía se quede anticuada. Puedes avisarnos desde la pestaña <em>Issues</em> del repositorio de GitHub de la web.</p>
 
-<p><a class="btn" href="guias.html">Ver las guías</a></p>
-</article></main>
+<p><a class="btn" href="guias.html">Ver las guías</a> <a class="btn sec" href="juegos.html">Ver los juegos</a></p>
+</article>
+</main>
 <footer class="pie">
   <div class="pie-grid">
     <div>
-      <a class="logo" href="index.html" style="margin-bottom:10px"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
+      <a class="logo mb" href="index.html"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
       <p>Guías, trucos y herramientas gratis para gamers y amantes de la tecnología.</p>
     </div>
     <div>
       <h4>Explora</h4>
       <a href="guias.html">Todas las guías</a>
+      <a href="juegos.html">Juegos</a>
       <a href="herramientas.html">Herramientas</a>
+      <a href="premium.html">Premium</a>
       <a href="sobre.html">Sobre PixelTrucos</a>
+    </div>
+    <div>
+      <h4>Juegos</h4>
+      <a href="juego-fortnite.html">Fortnite</a>
+      <a href="juego-minecraft.html">Minecraft</a>
+      <a href="juego-call-of-duty.html">Call of Duty</a>
+      <a href="juego-rocket-league.html">Rocket League</a>
+      <a href="juego-roblox.html">Roblox</a>
+      <a href="juego-otros.html">Otros juegos</a>
     </div>
     <div>
       <h4>Legal</h4>
       <a href="privacidad.html">Política de privacidad</a>
     </div>
   </div>
-  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games. Fortnite es una marca registrada de Epic Games, Inc. Los demás nombres pertenecen a sus propietarios.</p>
+  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games, Microsoft/Mojang, Activision, Psyonix ni Roblox Corporation. Fortnite, Minecraft, Call of Duty, Rocket League y Roblox son marcas registradas de sus respectivos propietarios. Los demás nombres pertenecen a sus propietarios.</p>
   <p class="copy">© 2026 PixelTrucos · Hecho con pasión por los videojuegos</p>
 </footer>
 </body>

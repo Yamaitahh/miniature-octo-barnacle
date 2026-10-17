@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>PixelTrucos · Guías, trucos y herramientas para gamers</title>
-<meta name="description" content="Guías, trucos y herramientas gratis para gamers y amantes de la tecnología: mejora en Fortnite, más FPS, componentes de PC y calculadoras.">
-<meta name="theme-color" content="#04040a">
+<meta name="description" content="Guías, trucos y herramientas gratis para gamers: Fortnite, Minecraft, Call of Duty, Rocket League, Roblox, componentes de PC y calculadoras.">
+<meta name="theme-color" content="#07040f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="PixelTrucos">
 <meta property="og:title" content="PixelTrucos · Guías, trucos y herramientas para gamers">
-<meta property="og:description" content="Guías, trucos y herramientas gratis para gamers y amantes de la tecnología: mejora en Fortnite, más FPS, componentes de PC y calculadoras.">
+<meta property="og:description" content="Guías, trucos y herramientas gratis para gamers: Fortnite, Minecraft, Call of Duty, Rocket League, Roblox, componentes de PC y calculadoras.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="estilo.css">
-<script>document.documentElement.className='js'</script>
+<script src="inicio.js"></script>
 <script src="script.js" defer></script>
 </head>
 <body>
@@ -21,69 +23,81 @@
 <header class="sitio">
   <div class="barra">
     <a class="logo" href="index.html" aria-label="PixelTrucos, inicio"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
-    <button id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
-    <nav id="menu" aria-label="Principal"><a href="index.html" class=activo aria-current=page>Inicio</a><a href="guias.html">Guías</a><a href="herramientas.html">Herramientas</a><a href="sobre.html">Sobre</a></nav>
+    <button id="menu-btn" class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Principal"><a href="index.html" class="activo" aria-current="page">Inicio</a><a href="guias.html">Guías</a><a href="juegos.html">Juegos</a><a href="herramientas.html">Herramientas</a><a href="premium.html">Premium</a><a href="sobre.html">Sobre</a></nav>
   </div>
 </header>
 <main id="contenido">
-  <section class="hero">
-    <div class="pixeles" aria-hidden="true"><i></i><i></i><i></i></div>
-    <span class="sup">Web gaming · 100% gratis</span>
-    <h1>Sube de nivel con <span class="c">Pixel</span><span class="m">Trucos</span></h1>
-    <p class="lead">Guías claras, trucos que funcionan y herramientas gratis para gamers y amantes de la tecnología. Sin trampas y sin complicaciones.</p>
-    <p class="escribiendo" aria-hidden="true"><b>&gt;</b> <span id="typed" data-frases='["guías para subir de nivel", "ajustes para ganar FPS", "herramientas gratis para gamers", "tecnología explicada fácil"]'>guías para subir de nivel</span><i class="cursor"></i></p>
-    <div class="botones">
-      <a class="btn" href="guias.html">Explorar guías</a>
-      <a class="btn sec" href="herramientas.html">Ver herramientas</a>
-    </div>
-    <div class="cifras">
-      <span><b>5</b>guías</span>
-      <span><b>2</b>herramientas</span>
-      <span><b>0 €</b>siempre gratis</span>
-    </div>
-  </section>
-
-  <h2 class="seccion"><b>Categorías</b></h2>
-  <div class="rejilla"><a class="tarjeta cat rev" href="guias.html#Fortnite"><span class="icono">🎮</span><h3>Fortnite</h3><p>Controles, ajustes y práctica.</p></a><a class="tarjeta cat rev" href="guias.html#PC"><span class="icono">🖥️</span><h3>PC</h3><p>Piezas, compras y mejoras.</p></a><a class="tarjeta cat rev" href="guias.html#Online"><span class="icono">📡</span><h3>Online</h3><p>Ping, wifi y conexión.</p></a><a class="tarjeta cat rev" href="guias.html#Hardware"><span class="icono">🎧</span><h3>Hardware</h3><p>Periféricos y accesorios.</p></a></div>
-
-  <h2 class="seccion"><b>Guías</b> destacadas</h2>
-  <div class="rejilla"><a class="tarjeta rev" href="guia-controles-fortnite.html" data-cat="Fortnite" data-texto="mejora en fortnite controles, sensibilidad y práctica para subir de nivel. fortnite"><span class="icono">🎮</span><span class="etiqueta">Fortnite</span><h3>Mejora en Fortnite</h3><p>Controles, sensibilidad y práctica para subir de nivel.</p><span class="mas">Leer guía →</span></a><a class="tarjeta rev" href="guia-rendimiento-fortnite.html" data-cat="Fortnite" data-texto="más fps en fortnite ajustes gráficos para jugar fluido incluso con un pc modesto. fortnite"><span class="icono">⚡</span><span class="etiqueta">Fortnite</span><h3>Más FPS en Fortnite</h3><p>Ajustes gráficos para jugar fluido incluso con un PC modesto.</p><span class="mas">Leer guía →</span></a><a class="tarjeta rev" href="guia-componentes-pc.html" data-cat="PC" data-texto="componentes de pc guía para principiantes: qué hace cada pieza y cómo elegir. pc"><span class="icono">🖥️</span><span class="etiqueta">PC</span><h3>Componentes de PC</h3><p>Guía para principiantes: qué hace cada pieza y cómo elegir.</p><span class="mas">Leer guía →</span></a></div>
-  <p style="margin-top:18px"><a class="btn sec" href="guias.html">Ver todas las guías →</a></p>
-
-  <h2 class="seccion"><b>Herramientas</b></h2>
-  <div class="rejilla"><a class="tarjeta rev" href="calculadora-almacenamiento.html"><span class="icono">💾</span><span class="etiqueta">Herramienta</span><h3>Calculadora de almacenamiento</h3><p>Calcula cuánto espacio ocupan tus juegos y cuánto te queda libre.</p><span class="mas">Probar herramienta →</span></a><a class="tarjeta rev" href="calculadora-edpi.html"><span class="icono">🎯</span><span class="etiqueta">Herramienta</span><h3>Calculadora de eDPI</h3><p>Calcula tu eDPI y cambia de DPI sin perder tu sensibilidad.</p><span class="mas">Probar herramienta →</span></a></div>
-
-  <h2 class="seccion">¿Por qué <b>PixelTrucos</b>?</h2>
-  <div class="rejilla">
-    <div class="tarjeta rev"><span class="icono">✍️</span><h3>Contenido original</h3><p>Todas las guías están escritas desde cero, pensadas para que se entiendan a la primera.</p></div>
-    <div class="tarjeta rev"><span class="icono">🛡️</span><h3>Sin trampas ni virus</h3><p>Aquí no hay hacks ni programas dudosos. Solo formas seguras de mejorar tu juego.</p></div>
-    <div class="tarjeta rev"><span class="icono">🔒</span><h3>Tu privacidad primero</h3><p>No pedimos registro ni usamos cookies de rastreo. Las herramientas funcionan en tu navegador.</p></div>
+<section class="hero">
+  <div class="pixeles" aria-hidden="true"><i></i><i></i><i></i></div>
+  <span class="sup">Web gaming · 100% gratis</span>
+  <h1>Sube de nivel con <span class="c">Pixel</span><span class="m">Trucos</span></h1>
+  <p class="lead">Guías claras, trucos que funcionan y herramientas gratis para gamers y amantes de la tecnología. Sin trampas y sin complicaciones.</p>
+  <p class="escribiendo" aria-hidden="true"><b>&gt;</b> <span id="typed" data-frases='["guías para subir de nivel", "trucos para Minecraft y Roblox", "ajustes para ganar FPS", "herramientas gratis para gamers"]'>guías para subir de nivel</span><i class="cursor"></i></p>
+  <div class="botones">
+    <a class="btn" href="juegos.html">Elegir mi juego</a>
+    <a class="btn sec" href="guias.html">Explorar guías</a>
   </div>
+  <div class="cifras">
+    <span><b>6</b>secciones de juegos</span>
+    <span><b>9</b>guías</span>
+    <span><b>2</b>herramientas</span>
+    <span><b>0 €</b>siempre gratis</span>
+  </div>
+</section>
 
-  <section class="caja-cta rev">
-    <h2>¿Por dónde empiezo?</h2>
-    <p>Si juegas a Fortnite, empieza por la guía de controles y sensibilidad. Es la base de todo lo demás.</p>
-    <div class="botones" style="justify-content:center"><a class="btn" href="guia-controles-fortnite.html">Empezar ahora</a></div>
-  </section>
+<h2 class="seccion"><b>Juegos</b></h2>
+<div class="rejilla"><a class="tarjeta cat t-fortnite rev" href="juego-fortnite.html"><span class="icono">🎮</span><h3>Fortnite</h3><p>Controles, sensibilidad, FPS y hábitos para ganar más partidas.</p></a><a class="tarjeta cat t-minecraft rev" href="juego-minecraft.html"><span class="icono">⛏️</span><h3>Minecraft</h3><p>Sobrevive, construye y explora sin sustos.</p></a><a class="tarjeta cat t-cod rev" href="juego-call-of-duty.html"><span class="icono">🎯</span><h3>Call of Duty</h3><p>Ajustes, puntería y hábitos para mejorar partida a partida.</p></a><a class="tarjeta cat t-rocket-league rev" href="juego-rocket-league.html"><span class="icono">🚀</span><h3>Rocket League</h3><p>Fútbol con coches: controles, cámara y rotaciones.</p></a><a class="tarjeta cat t-roblox rev" href="juego-roblox.html"><span class="icono">🧱</span><h3>Roblox</h3><p>Juega, crea y diviértete con la cuenta bien protegida.</p></a><a class="tarjeta cat t-otros rev" href="juego-otros.html"><span class="icono">🕹️</span><h3>Otros juegos</h3><p>Consejos que sirven para cualquier juego.</p></a></div>
+
+<h2 class="seccion"><b>Guías</b> destacadas</h2>
+<div class="rejilla"><a class="tarjeta rev" href="guia-controles-fortnite.html" data-cat="fortnite" data-texto="mejora en fortnite controles, sensibilidad y práctica para subir de nivel. fortnite"><span class="icono">🎮</span><span class="etiqueta">Fortnite</span><h3>Mejora en Fortnite</h3><p>Controles, sensibilidad y práctica para subir de nivel.</p><span class="mas">Leer guía →</span></a><a class="tarjeta rev" href="guia-minecraft-primeros-pasos.html" data-cat="minecraft" data-texto="minecraft: tus primeras noches cómo sobrevivir al principio y montar tu primera base. minecraft"><span class="icono">⛏️</span><span class="etiqueta">Minecraft</span><h3>Minecraft: tus primeras noches</h3><p>Cómo sobrevivir al principio y montar tu primera base.</p><span class="mas">Leer guía →</span></a><a class="tarjeta rev" href="guia-rocket-league-basicos.html" data-cat="rocket-league" data-texto="rocket league: primeros goles controles, cámara y rotaciones para empezar bien. rocket league"><span class="icono">🚀</span><span class="etiqueta">Rocket League</span><h3>Rocket League: primeros goles</h3><p>Controles, cámara y rotaciones para empezar bien.</p><span class="mas">Leer guía →</span></a><a class="tarjeta rev" href="guia-roblox-seguro.html" data-cat="roblox" data-texto="roblox seguro cuenta, privacidad y cómo evitar estafas de robux gratis. roblox"><span class="icono">🧱</span><span class="etiqueta">Roblox</span><h3>Roblox seguro</h3><p>Cuenta, privacidad y cómo evitar estafas de Robux gratis.</p><span class="mas">Leer guía →</span></a><a class="tarjeta rev" href="guia-rendimiento-fortnite.html" data-cat="fortnite" data-texto="más fps en fortnite ajustes gráficos para jugar fluido incluso con un pc modesto. fortnite"><span class="icono">⚡</span><span class="etiqueta">Fortnite</span><h3>Más FPS en Fortnite</h3><p>Ajustes gráficos para jugar fluido incluso con un PC modesto.</p><span class="mas">Leer guía →</span></a><a class="tarjeta rev" href="guia-componentes-pc.html" data-cat="pc" data-texto="componentes de pc guía para principiantes: qué hace cada pieza y cómo elegir. pc"><span class="icono">🖥️</span><span class="etiqueta">PC</span><h3>Componentes de PC</h3><p>Guía para principiantes: qué hace cada pieza y cómo elegir.</p><span class="mas">Leer guía →</span></a></div>
+<p class="mt18"><a class="btn sec" href="guias.html">Ver todas las guías →</a></p>
+
+<h2 class="seccion"><b>Herramientas</b></h2>
+<div class="rejilla"><a class="tarjeta rev" href="calculadora-almacenamiento.html"><span class="icono">💾</span><span class="etiqueta">Herramienta</span><h3>Calculadora de almacenamiento</h3><p>Calcula cuánto espacio ocupan tus juegos y cuánto te queda libre.</p><span class="mas">Probar herramienta →</span></a><a class="tarjeta rev" href="calculadora-edpi.html"><span class="icono">🎯</span><span class="etiqueta">Herramienta</span><h3>Calculadora de eDPI</h3><p>Calcula tu eDPI y cambia de DPI sin perder tu sensibilidad.</p><span class="mas">Probar herramienta →</span></a></div>
+
+<h2 class="seccion">¿Por qué <b>PixelTrucos</b>?</h2>
+<div class="rejilla">
+  <div class="tarjeta rev"><span class="icono">✍️</span><h3>Contenido original</h3><p>Todas las guías están escritas desde cero, pensadas para que se entiendan a la primera.</p></div>
+  <div class="tarjeta rev"><span class="icono">🛡️</span><h3>Sin trampas ni virus</h3><p>Aquí no hay hacks ni programas dudosos. Solo formas seguras de mejorar tu juego.</p></div>
+  <div class="tarjeta rev"><span class="icono">🔒</span><h3>Tu privacidad primero</h3><p>No pedimos registro ni usamos cookies de rastreo. Las herramientas funcionan en tu navegador.</p></div>
+</div>
+
+<section class="caja-cta rev">
+  <h2>¿Por dónde empiezo?</h2>
+  <p>Elige tu juego y entra en su sección: allí tienes guías, trucos, configuraciones y consejos. Si no sabes cuál, empieza por la guía de Fortnite.</p>
+  <div class="botones centrado"><a class="btn" href="juegos.html">Ver los juegos</a><a class="btn sec" href="guia-controles-fortnite.html">Guía de Fortnite</a></div>
+</section>
 </main>
 <footer class="pie">
   <div class="pie-grid">
     <div>
-      <a class="logo" href="index.html" style="margin-bottom:10px"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
+      <a class="logo mb" href="index.html"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
       <p>Guías, trucos y herramientas gratis para gamers y amantes de la tecnología.</p>
     </div>
     <div>
       <h4>Explora</h4>
       <a href="guias.html">Todas las guías</a>
+      <a href="juegos.html">Juegos</a>
       <a href="herramientas.html">Herramientas</a>
+      <a href="premium.html">Premium</a>
       <a href="sobre.html">Sobre PixelTrucos</a>
+    </div>
+    <div>
+      <h4>Juegos</h4>
+      <a href="juego-fortnite.html">Fortnite</a>
+      <a href="juego-minecraft.html">Minecraft</a>
+      <a href="juego-call-of-duty.html">Call of Duty</a>
+      <a href="juego-rocket-league.html">Rocket League</a>
+      <a href="juego-roblox.html">Roblox</a>
+      <a href="juego-otros.html">Otros juegos</a>
     </div>
     <div>
       <h4>Legal</h4>
       <a href="privacidad.html">Política de privacidad</a>
     </div>
   </div>
-  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games. Fortnite es una marca registrada de Epic Games, Inc. Los demás nombres pertenecen a sus propietarios.</p>
+  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games, Microsoft/Mojang, Activision, Psyonix ni Roblox Corporation. Fortnite, Minecraft, Call of Duty, Rocket League y Roblox son marcas registradas de sus respectivos propietarios. Los demás nombres pertenecen a sus propietarios.</p>
   <p class="copy">© 2026 PixelTrucos · Hecho con pasión por los videojuegos</p>
 </footer>
 </body>

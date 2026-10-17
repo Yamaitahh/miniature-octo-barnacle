@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Página no encontrada · PixelTrucos</title>
 <meta name="description" content="La página que buscas no existe.">
-<meta name="theme-color" content="#04040a">
+<meta name="theme-color" content="#07040f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="PixelTrucos">
@@ -13,7 +15,7 @@
 <meta property="og:description" content="La página que buscas no existe.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="estilo.css">
-<script>document.documentElement.className='js'</script>
+<script src="inicio.js"></script>
 <script src="script.js" defer></script>
 </head>
 <body>
@@ -21,33 +23,46 @@
 <header class="sitio">
   <div class="barra">
     <a class="logo" href="index.html" aria-label="PixelTrucos, inicio"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
-    <button id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
-    <nav id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="guias.html">Guías</a><a href="herramientas.html">Herramientas</a><a href="sobre.html">Sobre</a></nav>
+    <button id="menu-btn" class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="guias.html">Guías</a><a href="juegos.html">Juegos</a><a href="herramientas.html">Herramientas</a><a href="premium.html">Premium</a><a href="sobre.html">Sobre</a></nav>
   </div>
 </header>
-<main id="contenido"><section class="centro">
+<main id="contenido">
+<section class="centro">
 <h1>404</h1>
-<p style="color:var(--suave);margin:14px 0 26px">Game over: esta página no existe o se ha movido.</p>
+<p>Game over: esta página no existe o se ha movido.</p>
 <a class="btn" href="index.html">Volver al inicio</a>
-</section></main>
+</section>
+</main>
 <footer class="pie">
   <div class="pie-grid">
     <div>
-      <a class="logo" href="index.html" style="margin-bottom:10px"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
+      <a class="logo mb" href="index.html"><img src="favicon.svg" alt="" width="30" height="30"><span><span class="c">Pixel</span><span class="m">Trucos</span></span></a>
       <p>Guías, trucos y herramientas gratis para gamers y amantes de la tecnología.</p>
     </div>
     <div>
       <h4>Explora</h4>
       <a href="guias.html">Todas las guías</a>
+      <a href="juegos.html">Juegos</a>
       <a href="herramientas.html">Herramientas</a>
+      <a href="premium.html">Premium</a>
       <a href="sobre.html">Sobre PixelTrucos</a>
+    </div>
+    <div>
+      <h4>Juegos</h4>
+      <a href="juego-fortnite.html">Fortnite</a>
+      <a href="juego-minecraft.html">Minecraft</a>
+      <a href="juego-call-of-duty.html">Call of Duty</a>
+      <a href="juego-rocket-league.html">Rocket League</a>
+      <a href="juego-roblox.html">Roblox</a>
+      <a href="juego-otros.html">Otros juegos</a>
     </div>
     <div>
       <h4>Legal</h4>
       <a href="privacidad.html">Política de privacidad</a>
     </div>
   </div>
-  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games. Fortnite es una marca registrada de Epic Games, Inc. Los demás nombres pertenecen a sus propietarios.</p>
+  <p class="legal">PixelTrucos es una web de fans. No está afiliada, patrocinada ni respaldada por Epic Games, Microsoft/Mojang, Activision, Psyonix ni Roblox Corporation. Fortnite, Minecraft, Call of Duty, Rocket League y Roblox son marcas registradas de sus respectivos propietarios. Los demás nombres pertenecen a sus propietarios.</p>
   <p class="copy">© 2026 PixelTrucos · Hecho con pasión por los videojuegos</p>
 </footer>
 </body>
